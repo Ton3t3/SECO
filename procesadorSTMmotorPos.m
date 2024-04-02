@@ -3,13 +3,13 @@
 %%%     1. Kp=10  realizando 5 vueltas completas    %%%
 %%%     2. Kp=0.8534 realizando 2 vueltas completas %%%
 
- archivo = 'motorPos_K_10.txt';
- Kp0 = 10;
- targetPos = 5*2*pi;
+ % archivo = 'motorPos_K_10.txt';
+ % Kp0 = 10;
+ % targetPos = 5*2*pi;
 
-% archivo = 'motorPos_K_0.8534_1.txt';
-% Kp0 = 0.8534;
-% targetPos = 2*2*pi;
+archivo = 'motorPos_K_0.8534_1.txt';
+Kp0 = 0.8534;
+targetPos = 2*2*pi;
 %%
 
 % Abrir el archivo para lectura
@@ -62,13 +62,13 @@ save motorPosT_str motorPosT;
 fclose(fid);
 
 %% Plots
-% hold on
-% plot(motorPosT(:,1), motorPosT(:,2));
-% yline(targetPos, 'r');
-% legend("Voltaje obtenido", "Voltaje Objetivo")
-% ylabel("Voltaje (V)")
-% xlabel("Tiempo (ms)")
-% hold off
+hold on
+plot(motorPosT(:,1), motorPosT(:,2));
+yline(targetPos, 'r');
+legend("Posición obtenida", "Posición Objetivo")
+ylabel("Posición (rad)")
+xlabel("Tiempo (ms)")
+hold off
 
 %% Optimización función de transferencia a comportamiento motor
 Kp0 = 10;
