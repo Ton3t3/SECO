@@ -62,10 +62,7 @@ metric = motorDC_joinExps(mediasDatos, p, K, t0, t1, signals);
 
 end
 
-%% CONTROLADOR PROPORCIONAL
-
-
-%% Plots
+%% PLOTS
 % POSICIÓN Y VELOCIDAD IDEAL
 % for i = 12:-1:0
 %     hold on
