@@ -63,6 +63,29 @@ metric = motorDC_joinExps(mediasDatos, p, K, t0, t1, signals);
 end
 
 %% PLOTS
+% POSICIÓN REAL
+plot(mediasDatos)
+ylabel("Pulsos del encoder")
+xlabel("Tiempo (ms)")
+
+% VELOCIDAD REAL
+q = 48; %CPR
+T = 1e-3; %Periodo de muestreo
+dy = zeros(1200,12);
+for i = 1:12
+    for j = 1:1200
+        if j == 1
+            dif = mediasDatos(j,i);
+        else
+            dif = mediasDatos(j,i)-mediasDatos(j-1,i);
+        end 
+        dy(j,i) = 2*pi/q/T * dif;
+    end
+end
+plot(dy)
+ylabel("Velocidad angular (rad/s)")
+xlabel("Tiempo (ms)")
+
 % POSICIÓN Y VELOCIDAD IDEAL
 % for i = 12:-1:0
 %     hold on
